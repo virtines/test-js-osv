@@ -1,0 +1,11 @@
+
+runtime: native
+
+config_set: 
+
+   ################################################################
+   ### This is one configuration set (feel free to rename it).  ###
+   ################################################################
+   default:
+      bootcmd: /js /test.js
+config_set_default: default
