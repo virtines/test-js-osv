@@ -17,12 +17,12 @@ js: src/baseline.cpp
 clean:
 	rm -f hello
 
-init:
+init: $(CAPSTAN)
 	$(CAPSTAN) package pull osv.bootstrap
 	$(CAPSTAN) package init --name js --title js --author nick
 
-compose:
+compose: $(CAPSTAN)
 	$(CAPSTAN) package compose js
 
-run:
+run: $(CAPSTAN)
 	$(CAPSTAN) run
