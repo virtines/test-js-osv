@@ -21,7 +21,7 @@ init: $(CAPSTAN)
 	$(CAPSTAN) package pull osv.bootstrap
 	$(CAPSTAN) package init --name js --title js --author nick
 
-compose: $(CAPSTAN)
+compose: $(CAPSTAN) js
 	$(CAPSTAN) package compose js
 
 run: $(CAPSTAN)
