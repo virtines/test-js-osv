@@ -3,6 +3,14 @@ module: hello
 
 CFLAGS = -fpie -rdynamic
 
+CAPSTAN=bin/capstan
+
+
+$(CAPSTAN):
+	mkdir -p bin
+	wget -O $(CAPSTAN) https://github.com/cloudius-systems/capstan/releases/download/v0.5.0/capstan	
+	chmod +x $(CAPSTAN)
+
 js: src/baseline.cpp
 	g++ -pie -o $@ $(CFLAGS) $(LDFLAGS) $<
 
@@ -10,11 +18,11 @@ clean:
 	rm -f hello
 
 init:
-	capstan package pull osv.bootstrap
-	capstan package init --name js --title js --author nick
+	$(CAPSTAN) package pull osv.bootstrap
+	$(CAPSTAN) package init --name js --title js --author nick
 
 compose:
-	capstan package compose js
+	$(CAPSTAN) package compose js
 
 run:
-	capstan run
+	$(CAPSTAN) run
